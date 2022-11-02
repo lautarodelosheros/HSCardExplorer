@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		615FFAE029120FFE0085A2E3 /* HSCardExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFADF29120FFE0085A2E3 /* HSCardExplorerApp.swift */; };
-		615FFAE229120FFE0085A2E3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFAE129120FFE0085A2E3 /* ContentView.swift */; };
+		615FFAE229120FFE0085A2E3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFAE129120FFE0085A2E3 /* MainView.swift */; };
 		615FFAE429120FFF0085A2E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 615FFAE329120FFF0085A2E3 /* Assets.xcassets */; };
 		615FFAE729120FFF0085A2E3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 615FFAE629120FFF0085A2E3 /* Preview Assets.xcassets */; };
 		615FFAF129120FFF0085A2E3 /* HSCardExplorerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFAF029120FFF0085A2E3 /* HSCardExplorerTests.swift */; };
 		615FFAFB29120FFF0085A2E3 /* HSCardExplorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFAFA29120FFF0085A2E3 /* HSCardExplorerUITests.swift */; };
 		615FFAFD29120FFF0085A2E3 /* HSCardExplorerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFAFC29120FFF0085A2E3 /* HSCardExplorerUITestsLaunchTests.swift */; };
+		615FFB0C291215970085A2E3 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB0B291215970085A2E3 /* CardDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +37,7 @@
 /* Begin PBXFileReference section */
 		615FFADC29120FFE0085A2E3 /* HSCardExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSCardExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		615FFADF29120FFE0085A2E3 /* HSCardExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSCardExplorerApp.swift; sourceTree = "<group>"; };
-		615FFAE129120FFE0085A2E3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		615FFAE129120FFE0085A2E3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		615FFAE329120FFF0085A2E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		615FFAE629120FFF0085A2E3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		615FFAEC29120FFF0085A2E3 /* HSCardExplorerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSCardExplorerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +45,7 @@
 		615FFAF629120FFF0085A2E3 /* HSCardExplorerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HSCardExplorerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		615FFAFA29120FFF0085A2E3 /* HSCardExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSCardExplorerUITests.swift; sourceTree = "<group>"; };
 		615FFAFC29120FFF0085A2E3 /* HSCardExplorerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSCardExplorerUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		615FFB0B291215970085A2E3 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,8 +96,8 @@
 		615FFADE29120FFE0085A2E3 /* HSCardExplorer */ = {
 			isa = PBXGroup;
 			children = (
+				615FFB09291214F20085A2E3 /* Views */,
 				615FFADF29120FFE0085A2E3 /* HSCardExplorerApp.swift */,
-				615FFAE129120FFE0085A2E3 /* ContentView.swift */,
 				615FFAE329120FFF0085A2E3 /* Assets.xcassets */,
 				615FFAE529120FFF0085A2E3 /* Preview Content */,
 			);
@@ -125,6 +127,23 @@
 				615FFAFC29120FFF0085A2E3 /* HSCardExplorerUITestsLaunchTests.swift */,
 			);
 			path = HSCardExplorerUITests;
+			sourceTree = "<group>";
+		};
+		615FFB09291214F20085A2E3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				615FFB0A291215050085A2E3 /* Screens */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		615FFB0A291215050085A2E3 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				615FFAE129120FFE0085A2E3 /* MainView.swift */,
+				615FFB0B291215970085A2E3 /* CardDetailView.swift */,
+			);
+			path = Screens;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,7 +276,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				615FFAE229120FFE0085A2E3 /* ContentView.swift in Sources */,
+				615FFB0C291215970085A2E3 /* CardDetailView.swift in Sources */,
+				615FFAE229120FFE0085A2E3 /* MainView.swift in Sources */,
 				615FFAE029120FFE0085A2E3 /* HSCardExplorerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
