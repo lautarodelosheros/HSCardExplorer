@@ -17,17 +17,19 @@ struct CardsCollectionView: View {
         ScrollView {
             LazyVGrid(columns: columns, content: {
                 ForEach(Array(cardsProvider.data.enumerated()), id: \.element.id) { index, card in
-                    AsyncImage(url: card.imageUrl,
-                               content: { image in
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                    }) {
-                        ProgressView()
-                    }
-                    .onAppear() {
-                        if index >= cardsProvider.data.count - 5 {
-                            cardsProvider.getData()
+                    NavigationLink(destination: CardDetailView(card: card)) {
+                        AsyncImage(url: card.imageUrl,
+                                   content: { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }) {
+                            ProgressView()
+                        }
+                        .onAppear() {
+                            if index >= cardsProvider.data.count - 5 {
+                                cardsProvider.getData()
+                            }
                         }
                     }
                 }

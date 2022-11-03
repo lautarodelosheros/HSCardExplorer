@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var isShowingFilter = false
+    
     var body: some View {
         NavigationView {
             CardsCollectionView()
             .navigationTitle("Card Explorer")
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button {
+                        isShowingFilter.toggle()
+                    } label: {
+                        Image(systemName: "line.3.horizontal.decrease.circle")
+                    }
+                    .sheet(isPresented: $isShowingFilter) {
+                        CardsFilterView()
+                            .presentationDetents([.medium, .large])
+                    }
                 }
             }
         }
