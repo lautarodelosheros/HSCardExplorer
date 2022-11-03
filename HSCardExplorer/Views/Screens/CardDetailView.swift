@@ -8,14 +8,30 @@
 import SwiftUI
 
 struct CardDetailView: View {
+    @State var card: Card
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            .navigationTitle("Card detail")
+        ScrollView {
+            VStack {
+                AsyncImage(url: card.imageUrl,
+                           content: { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                }) {
+                    ProgressView()
+                }
+                Text(card.name)
+                    .font(.title)
+            }
+        }
+        .padding(.top, 0.3)
+        .navigationTitle(card.name)
     }
 }
 
 struct CardDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        CardDetailView()
+        CardDetailView(card: Card.exampleCard)
     }
 }

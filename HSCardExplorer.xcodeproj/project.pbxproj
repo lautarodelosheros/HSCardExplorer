@@ -23,6 +23,13 @@
 		615FFB1B291368A80085A2E3 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB1A291368A80085A2E3 /* SplashView.swift */; };
 		615FFB1D29136C410085A2E3 /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB1C29136C410085A2E3 /* AccessTokenResponse.swift */; };
 		615FFB1F29137BA00085A2E3 /* HearthstoneAPIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB1E29137BA00085A2E3 /* HearthstoneAPIKey.swift */; };
+		615FFB2329137CCF0085A2E3 /* CardsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2229137CCF0085A2E3 /* CardsResponse.swift */; };
+		615FFB25291416C10085A2E3 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB24291416C10085A2E3 /* DataProvider.swift */; };
+		615FFB27291443E30085A2E3 /* CardsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB26291443E30085A2E3 /* CardsFilterView.swift */; };
+		615FFB29291445550085A2E3 /* CardSortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB28291445550085A2E3 /* CardSortOption.swift */; };
+		615FFB2B291446A00085A2E3 /* CardSortDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2A291446A00085A2E3 /* CardSortDirection.swift */; };
+		615FFB2D2914502C0085A2E3 /* MetadataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2C2914502C0085A2E3 /* MetadataResponse.swift */; };
+		615FFB2F291450490085A2E3 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2E291450490085A2E3 /* CardSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +69,13 @@
 		615FFB1A291368A80085A2E3 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		615FFB1C29136C410085A2E3 /* AccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
 		615FFB1E29137BA00085A2E3 /* HearthstoneAPIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HearthstoneAPIKey.swift; sourceTree = "<group>"; };
+		615FFB2229137CCF0085A2E3 /* CardsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsResponse.swift; sourceTree = "<group>"; };
+		615FFB24291416C10085A2E3 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		615FFB26291443E30085A2E3 /* CardsFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsFilterView.swift; sourceTree = "<group>"; };
+		615FFB28291445550085A2E3 /* CardSortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSortOption.swift; sourceTree = "<group>"; };
+		615FFB2A291446A00085A2E3 /* CardSortDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSortDirection.swift; sourceTree = "<group>"; };
+		615FFB2C2914502C0085A2E3 /* MetadataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataResponse.swift; sourceTree = "<group>"; };
+		615FFB2E291450490085A2E3 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +167,7 @@
 			children = (
 				615FFB0A291215050085A2E3 /* Screens */,
 				615FFB0D291228D90085A2E3 /* CardsCollectionView.swift */,
+				615FFB26291443E30085A2E3 /* CardsFilterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,9 +185,12 @@
 		615FFB0F291345BD0085A2E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				615FFB2129137CB10085A2E3 /* APIResponses */,
+				615FFB2029137CA70085A2E3 /* Providers */,
 				615FFB16291349000085A2E3 /* Card.swift */,
-				615FFB1829134BA60085A2E3 /* CardsProvider.swift */,
-				615FFB1C29136C410085A2E3 /* AccessTokenResponse.swift */,
+				615FFB28291445550085A2E3 /* CardSortOption.swift */,
+				615FFB2A291446A00085A2E3 /* CardSortDirection.swift */,
+				615FFB2E291450490085A2E3 /* CardSet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -192,6 +210,25 @@
 				615FFB14291348710085A2E3 /* Decoder.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		615FFB2029137CA70085A2E3 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				615FFB24291416C10085A2E3 /* DataProvider.swift */,
+				615FFB1829134BA60085A2E3 /* CardsProvider.swift */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		615FFB2129137CB10085A2E3 /* APIResponses */ = {
+			isa = PBXGroup;
+			children = (
+				615FFB1C29136C410085A2E3 /* AccessTokenResponse.swift */,
+				615FFB2229137CCF0085A2E3 /* CardsResponse.swift */,
+				615FFB2C2914502C0085A2E3 /* MetadataResponse.swift */,
+			);
+			path = APIResponses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -324,17 +361,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				615FFB27291443E30085A2E3 /* CardsFilterView.swift in Sources */,
+				615FFB2D2914502C0085A2E3 /* MetadataResponse.swift in Sources */,
 				615FFB0E291228D90085A2E3 /* CardsCollectionView.swift in Sources */,
+				615FFB29291445550085A2E3 /* CardSortOption.swift in Sources */,
 				615FFB0C291215970085A2E3 /* CardDetailView.swift in Sources */,
 				615FFB1D29136C410085A2E3 /* AccessTokenResponse.swift in Sources */,
+				615FFB2B291446A00085A2E3 /* CardSortDirection.swift in Sources */,
 				615FFB17291349000085A2E3 /* Card.swift in Sources */,
 				615FFAE229120FFE0085A2E3 /* MainView.swift in Sources */,
 				615FFB12291345DF0085A2E3 /* HearthstoneAPIClient.swift in Sources */,
+				615FFB2329137CCF0085A2E3 /* CardsResponse.swift in Sources */,
 				615FFB15291348710085A2E3 /* Decoder.swift in Sources */,
 				615FFB1929134BA60085A2E3 /* CardsProvider.swift in Sources */,
 				615FFAE029120FFE0085A2E3 /* HSCardExplorerApp.swift in Sources */,
 				615FFB1B291368A80085A2E3 /* SplashView.swift in Sources */,
 				615FFB1F29137BA00085A2E3 /* HearthstoneAPIKey.swift in Sources */,
+				615FFB2F291450490085A2E3 /* CardSet.swift in Sources */,
+				615FFB25291416C10085A2E3 /* DataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

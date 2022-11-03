@@ -10,20 +10,34 @@ import SwiftUI
 struct CardsCollectionView: View {
     @StateObject var cardsProvider = CardsProvider.shared
     var columns = [
-        GridItem(.adaptive(minimum: 100), spacing: 8)
+        GridItem(.adaptive(minimum: 60), spacing: 8)
     ]
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, content: {
-                ForEach(cardsProvider.cards) { card in
-                    Text(card.name)
+                ForEach(Array(cardsProvider.data.enumerated()), id: \.element.id) { index, card in
+                    NavigationLink(destination: CardDetailView(card: card)) {
+                        AsyncImage(url: card.imageUrl,
+                                   content: { image in
+                            image
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }) {
+                            ProgressView()
+                        }
+                        .onAppear() {
+                            if index >= cardsProvider.data.count - 5 {
+                                cardsProvider.getData()
+                            }
+                        }
+                    }
                 }
                 .frame(height: 100)
             })
         }
         .onAppear() {
-            cardsProvider.fetchCards()
+            cardsProvider.getData()
         }
     }
 }

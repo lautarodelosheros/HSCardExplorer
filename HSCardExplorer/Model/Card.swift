@@ -11,12 +11,18 @@ struct Card: Codable, Identifiable {
     
     let id: Int
     let name: String
+    let image: String
+    
+    var imageUrl: URL? {
+        URL(string: image)
+    }
 }
 
-struct CardsResponse: Codable {
+extension Card {
     
-    let cards: [Card]
-    let cardCount: Int
-    let pageCount: Int
-    let page: Int
+    static let exampleCard = Card(
+        id: 0,
+        name: "Abominable Bowman",
+        image: "https://d15f34w2p8l1cc.cloudfront.net/hearthstone/dd2a917a839ddf9c4c32efa490dd8f1fc3830722514629a5aae77d27f114e27c.png"
+    )
 }
