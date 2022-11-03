@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct CardsCollectionView: View {
+    @StateObject var cardsProvider = CardsProvider.shared
     var columns = [
         GridItem(.adaptive(minimum: 100), spacing: 8)
     ]
@@ -15,11 +16,14 @@ struct CardsCollectionView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, content: {
-                ForEach(0...100, id: \.self) { _ in
-                    Color.orange
+                ForEach(cardsProvider.cards) { card in
+                    Text(card.name)
                 }
                 .frame(height: 100)
             })
+        }
+        .onAppear() {
+            cardsProvider.fetchCards()
         }
     }
 }
