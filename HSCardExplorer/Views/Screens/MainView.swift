@@ -10,15 +10,13 @@ import SwiftUI
 struct MainView: View {
     var body: some View {
         NavigationView {
-            VStack {
-                Image(systemName: "globe")
-                    .imageScale(.large)
-                    .foregroundColor(.accentColor)
-                NavigationLink(destination: CardDetailView()) {
-                    Text("Hello, world!")
+            CardsCollectionView()
+            .navigationTitle("Card Explorer")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+
                 }
             }
-            .navigationTitle("Card Explorer")
         }
     }
 }

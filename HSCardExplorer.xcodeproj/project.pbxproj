@@ -15,6 +15,7 @@
 		615FFAFB29120FFF0085A2E3 /* HSCardExplorerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFAFA29120FFF0085A2E3 /* HSCardExplorerUITests.swift */; };
 		615FFAFD29120FFF0085A2E3 /* HSCardExplorerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFAFC29120FFF0085A2E3 /* HSCardExplorerUITestsLaunchTests.swift */; };
 		615FFB0C291215970085A2E3 /* CardDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB0B291215970085A2E3 /* CardDetailView.swift */; };
+		615FFB0E291228D90085A2E3 /* CardsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB0D291228D90085A2E3 /* CardsCollectionView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		615FFAFA29120FFF0085A2E3 /* HSCardExplorerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSCardExplorerUITests.swift; sourceTree = "<group>"; };
 		615FFAFC29120FFF0085A2E3 /* HSCardExplorerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSCardExplorerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		615FFB0B291215970085A2E3 /* CardDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardDetailView.swift; sourceTree = "<group>"; };
+		615FFB0D291228D90085A2E3 /* CardsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				615FFB0A291215050085A2E3 /* Screens */,
+				615FFB0D291228D90085A2E3 /* CardsCollectionView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				615FFB0E291228D90085A2E3 /* CardsCollectionView.swift in Sources */,
 				615FFB0C291215970085A2E3 /* CardDetailView.swift in Sources */,
 				615FFAE229120FFE0085A2E3 /* MainView.swift in Sources */,
 				615FFAE029120FFE0085A2E3 /* HSCardExplorerApp.swift in Sources */,
