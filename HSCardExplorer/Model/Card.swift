@@ -11,12 +11,9 @@ struct Card: Codable, Identifiable {
     
     let id: Int
     let name: String
-}
-
-struct CardsResponse: Codable {
+    let image: String
     
-    let cards: [Card]
-    let cardCount: Int
-    let pageCount: Int
-    let page: Int
+    var imageUrl: URL? {
+        URL(string: image)
+    }
 }

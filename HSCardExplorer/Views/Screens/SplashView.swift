@@ -16,7 +16,6 @@ struct SplashView: View {
                 MainView()
             } else {
                 Text("Splash Screen!")
-                    .font(Font.largeTitle)
             }
         }
         .onAppear {
