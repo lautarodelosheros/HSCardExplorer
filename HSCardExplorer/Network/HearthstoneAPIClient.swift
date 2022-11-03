@@ -25,6 +25,14 @@ class HearthstoneAPIClient {
         session = URLSession(configuration: configuration)
     }
     
+    func initializeSession(callback: @escaping () -> Void) {
+        getToken {
+            self.getMetadata {
+                callback()
+            }
+        }
+    }
+    
     func getToken(callback: @escaping () -> Void) {
         let url = URL(string: "https://oauth.battle.net/token")!
             .appending(queryItems: [URLQueryItem(name: "grant_type", value: "client_credentials")])
@@ -50,13 +58,39 @@ class HearthstoneAPIClient {
             .store(in: &subscriptions)
     }
     
+    func getMetadata(callback: @escaping () -> Void) {
+        var url = baseUrl.appending(path: "/hearthstone/metadata")
+        url.append(queryItems: [
+            URLQueryItem(name: "access_token", value: accessToken),
+            URLQueryItem(name: "locale", value: "en_US")
+        ])
+        return session.dataTaskPublisher(for: url)
+            .subscribe(on: queue)
+            .map({ $0.data })
+            .decode(type: MetadataResponse.self, decoder: JSONDecoder())
+            .receive(on: DispatchQueue.main)
+            .sink { completion in
+                switch completion {
+                case .finished:
+                    debugPrint("Success")
+                case .failure(let error):
+                    debugPrint(error)
+                }
+            } receiveValue: { response in
+                CardSet.remoteSets = response.sets
+                callback()
+            }
+            .store(in: &subscriptions)
+    }
+    
     func getCards(
+        cardSet: CardSet?,
         shouldShowUncollectibleCards: Bool,
         sortOption: CardSortOption,
         sortDirection: CardSortDirection,
         page: Int,
         pageSize: Int
-    ) -> (any Publisher<CardsResponse, Error>)? {
+    ) -> (any Publisher<CardsResponse, Error>) {
         var url = baseUrl.appending(path: "/hearthstone/cards")
         let showCollectibleCards = shouldShowUncollectibleCards ? "0,1" : "1"
         url.append(queryItems: [
@@ -67,9 +101,14 @@ class HearthstoneAPIClient {
             URLQueryItem(name: "sort", value: "\(sortOption.id):\(sortDirection.id)"),
             URLQueryItem(name: "collectible", value: showCollectibleCards)
         ])
+        if let cardSet = cardSet {
+            url.append(queryItems: [URLQueryItem(name: "set", value: cardSet.slug)])
+        }
         return session.dataTaskPublisher(for: url)
             .subscribe(on: queue)
-            .map({ $0.data })
+            .map({
+                $0.data
+            })
             .decode(type: CardsResponse.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
     }

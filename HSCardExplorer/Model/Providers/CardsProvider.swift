@@ -15,6 +15,13 @@ class CardsProvider: DataProvider<Card> {
         super.init(pageSize: 40)
     }
     
+    var cardSet: CardSet? {
+        didSet {
+            resetData()
+            getData()
+        }
+    }
+    
     var shouldShowUncollectibleCards = false {
         didSet {
             resetData()
@@ -40,25 +47,27 @@ class CardsProvider: DataProvider<Card> {
     override func fetchData() {
         super.fetchData()
         HearthstoneAPIClient.shared.getCards(
+            cardSet: cardSet,
             shouldShowUncollectibleCards: shouldShowUncollectibleCards,
             sortOption: sortOption,
             sortDirection: sortDirection,
             page: currentPage,
-            pageSize: pageSize)?
-            .sink { completion in
-                self.isFetchingFromServer = false
-                switch completion {
-                case .finished:
-                    self.currentPage += 1
-                case .failure(let error):
-                    debugPrint(error)
-                }
-            } receiveValue: { response in
-                self.addData(response.cards)
-                if response.cards.count != self.pageSize {
-                    self.noMoreData = true
-                }
+            pageSize: pageSize
+        )
+        .sink { completion in
+            self.isFetchingFromServer = false
+            switch completion {
+            case .finished:
+                self.currentPage += 1
+            case .failure(let error):
+                debugPrint(error)
             }
-            .store(in: &subscriptions)
+        } receiveValue: { response in
+            self.addData(response.cards)
+            if response.cards.count != self.pageSize {
+                self.noMoreData = true
+            }
+        }
+        .store(in: &subscriptions)
     }
 }

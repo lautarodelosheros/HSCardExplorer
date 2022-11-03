@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct CardsFilterView: View {
-    @State private var shouldShowUncollectibleCards = false
+    @State private var cardSet = CardsProvider.shared.cardSet
+    @State private var shouldShowUncollectibleCards = CardsProvider.shared.shouldShowUncollectibleCards
     @State private var sortOption = CardsProvider.shared.sortOption
     @State private var sortDirection = CardsProvider.shared.sortDirection
     
@@ -30,6 +31,16 @@ struct CardsFilterView: View {
     var body: some View {
         Form {
             Section {
+                Picker("Card set", selection: $cardSet) {
+                    Text("All")
+                        .tag(nil as CardSet?)
+                    ForEach(CardSet.availableSets) { cardSet in
+                        Text(cardSet.name)
+                            .tag(cardSet as CardSet?)
+                    }
+                }
+            }
+            Section {
                 Toggle("Show uncollectible cards", isOn: $shouldShowUncollectibleCards)
             }
             Section {
@@ -45,7 +56,11 @@ struct CardsFilterView: View {
                             .tag(sortDirection)
                     }
                 }
+                .pickerStyle(SegmentedPickerStyle())
             }
+        }
+        .onChange(of: cardSet) { newValue in
+            CardsProvider.shared.cardSet = newValue
         }
         .onChange(of: shouldShowUncollectibleCards) { newValue in
             CardsProvider.shared.shouldShowUncollectibleCards = newValue

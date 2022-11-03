@@ -19,7 +19,7 @@ struct SplashView: View {
             }
         }
         .onAppear {
-            HearthstoneAPIClient.shared.getToken {
+            HearthstoneAPIClient.shared.initializeSession {
                 withAnimation {
                     self.isSetUpDone = true
                 }

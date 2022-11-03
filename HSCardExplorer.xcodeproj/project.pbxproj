@@ -28,6 +28,8 @@
 		615FFB27291443E30085A2E3 /* CardsFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB26291443E30085A2E3 /* CardsFilterView.swift */; };
 		615FFB29291445550085A2E3 /* CardSortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB28291445550085A2E3 /* CardSortOption.swift */; };
 		615FFB2B291446A00085A2E3 /* CardSortDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2A291446A00085A2E3 /* CardSortDirection.swift */; };
+		615FFB2D2914502C0085A2E3 /* MetadataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2C2914502C0085A2E3 /* MetadataResponse.swift */; };
+		615FFB2F291450490085A2E3 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2E291450490085A2E3 /* CardSet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +74,8 @@
 		615FFB26291443E30085A2E3 /* CardsFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsFilterView.swift; sourceTree = "<group>"; };
 		615FFB28291445550085A2E3 /* CardSortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSortOption.swift; sourceTree = "<group>"; };
 		615FFB2A291446A00085A2E3 /* CardSortDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSortDirection.swift; sourceTree = "<group>"; };
+		615FFB2C2914502C0085A2E3 /* MetadataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataResponse.swift; sourceTree = "<group>"; };
+		615FFB2E291450490085A2E3 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,6 +190,7 @@
 				615FFB16291349000085A2E3 /* Card.swift */,
 				615FFB28291445550085A2E3 /* CardSortOption.swift */,
 				615FFB2A291446A00085A2E3 /* CardSortDirection.swift */,
+				615FFB2E291450490085A2E3 /* CardSet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -221,6 +226,7 @@
 			children = (
 				615FFB1C29136C410085A2E3 /* AccessTokenResponse.swift */,
 				615FFB2229137CCF0085A2E3 /* CardsResponse.swift */,
+				615FFB2C2914502C0085A2E3 /* MetadataResponse.swift */,
 			);
 			path = APIResponses;
 			sourceTree = "<group>";
@@ -356,6 +362,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				615FFB27291443E30085A2E3 /* CardsFilterView.swift in Sources */,
+				615FFB2D2914502C0085A2E3 /* MetadataResponse.swift in Sources */,
 				615FFB0E291228D90085A2E3 /* CardsCollectionView.swift in Sources */,
 				615FFB29291445550085A2E3 /* CardSortOption.swift in Sources */,
 				615FFB0C291215970085A2E3 /* CardDetailView.swift in Sources */,
@@ -370,6 +377,7 @@
 				615FFAE029120FFE0085A2E3 /* HSCardExplorerApp.swift in Sources */,
 				615FFB1B291368A80085A2E3 /* SplashView.swift in Sources */,
 				615FFB1F29137BA00085A2E3 /* HearthstoneAPIKey.swift in Sources */,
+				615FFB2F291450490085A2E3 /* CardSet.swift in Sources */,
 				615FFB25291416C10085A2E3 /* DataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
