@@ -10,7 +10,4 @@ import Foundation
 struct CardsResponse: Codable {
     
     let cards: [Card]
-    let cardCount: Int
-    let pageCount: Int
-    let page: Int
 }

@@ -50,12 +50,15 @@ class HearthstoneAPIClient {
             .store(in: &subscriptions)
     }
     
-    func getCards() -> (any Publisher<CardsResponse, Error>)? {
+    func getCards(page: Int, pageSize: Int) -> (any Publisher<CardsResponse, Error>)? {
         guard let accessToken = accessToken else { return nil }
         var url = baseUrl.appending(path: "/hearthstone/cards")
         url.append(queryItems: [
             URLQueryItem(name: "access_token", value: accessToken),
-            URLQueryItem(name: "locale", value: "en_US")
+            URLQueryItem(name: "locale", value: "en_US"),
+            URLQueryItem(name: "page", value: String(page + 1)),
+            URLQueryItem(name: "pageSize", value: String(pageSize)),
+            URLQueryItem(name: "collectible", value: "1")
         ])
         return session.dataTaskPublisher(for: url)
             .subscribe(on: queue)

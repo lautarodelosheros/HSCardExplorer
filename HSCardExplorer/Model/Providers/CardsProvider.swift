@@ -8,27 +8,30 @@
 import Foundation
 import Combine
 
-class CardsProvider: ObservableObject {
+class CardsProvider: DataProvider<Card> {
     
     static let shared = CardsProvider()
-    private init() {}
+    private init() {
+        super.init(pageSize: 40)
+    }
     
-    @Published var cards = [Card]()
-    private var subscriptions = Set<AnyCancellable>()
-    
-    func fetchCards() {
-        if cards.isEmpty {
-            HearthstoneAPIClient.shared.getCards()?.sink { completion in
-                switch completion {
-                case .finished:
-                    debugPrint("Success")
-                case .failure(let error):
-                    debugPrint(error)
-                }
-            } receiveValue: { response in
-                self.cards = response.cards
+    /// Don't call directly. Always call getData
+    override func fetchData() {
+        super.fetchData()
+        HearthstoneAPIClient.shared.getCards(page: currentPage, pageSize: pageSize)?.sink { completion in
+            self.isFetchingFromServer = false
+            switch completion {
+            case .finished:
+                self.currentPage += 1
+            case .failure(let error):
+                debugPrint(error)
             }
-            .store(in: &subscriptions)
+        } receiveValue: { response in
+            self.addData(response.cards)
+            if response.cards.count != self.pageSize {
+                self.noMoreData = true
+            }
         }
+        .store(in: &subscriptions)
     }
 }

@@ -16,7 +16,7 @@ struct CardsCollectionView: View {
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns, content: {
-                ForEach(cardsProvider.cards) { card in
+                ForEach(Array(cardsProvider.data.enumerated()), id: \.element.id) { index, card in
                     AsyncImage(url: card.imageUrl,
                                content: { image in
                         image
@@ -25,12 +25,17 @@ struct CardsCollectionView: View {
                     }) {
                         ProgressView()
                     }
+                    .onAppear() {
+                        if index >= cardsProvider.data.count - 5 {
+                            cardsProvider.getData()
+                        }
+                    }
                 }
                 .frame(height: 100)
             })
         }
         .onAppear() {
-            cardsProvider.fetchCards()
+            cardsProvider.getData()
         }
     }
 }
