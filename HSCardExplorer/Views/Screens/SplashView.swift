@@ -27,8 +27,9 @@ struct SplashView: View {
         VStack {
             if self.isSetUpDone {
                 MainView()
+                    .transition(AnyTransition.opacity.animation(.linear(duration: 0.3)))
             } else {
-                Text("Splash Screen!")
+                Image("Splash")
             }
         }
         .alert("There was an error", isPresented: $isOnError) {
