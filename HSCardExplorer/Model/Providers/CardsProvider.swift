@@ -15,39 +15,28 @@ class CardsProvider: DataProvider<Card> {
         super.init(pageSize: 40)
     }
     
-    var cardSet: CardSet? {
-        didSet {
-            resetData()
-            getData()
-        }
-    }
+    var cardSet: CardSet?
+    var manaCost: Int = -1
+    var attack: Int = -1
+    var health: Int = -1
+    var shouldShowUncollectibleCards = false
+    var sortOption = CardSortOption.name
+    var sortDirection = CardSortDirection.ascendant
     
-    var shouldShowUncollectibleCards = false {
-        didSet {
-            resetData()
-            getData()
-        }
-    }
-    
-    var sortOption = CardSortOption.name {
-        didSet {
-            resetData()
-            getData()
-        }
-    }
-    
-    var sortDirection = CardSortDirection.ascendant {
-        didSet {
-            resetData()
-            getData()
-        }
-    }
+    private var retryCount = 0
+    private let retryLimit = 6
     
     /// Don't call directly. Always call getData
     override func fetchData() {
         super.fetchData()
+        let manaCost = manaCost == -1 ? nil : manaCost
+        let attack = attack == -1 ? nil : attack
+        let health = health == -1 ? nil : health
         HearthstoneAPIClient.shared.getCards(
             cardSet: cardSet,
+            manaCost: manaCost,
+            attack: attack,
+            health: health,
             shouldShowUncollectibleCards: shouldShowUncollectibleCards,
             sortOption: sortOption,
             sortDirection: sortDirection,
@@ -59,7 +48,13 @@ class CardsProvider: DataProvider<Card> {
             switch completion {
             case .finished:
                 self.currentPage += 1
+                self.retryCount = 0
             case .failure(let error):
+                // Retry
+                if self.retryCount < self.retryLimit {
+                    self.retryCount += 1
+                    self.fetchData()
+                }
                 debugPrint(error)
             }
         } receiveValue: { response in

@@ -8,7 +8,20 @@
 import SwiftUI
 
 struct SplashView: View {
-    @State var isSetUpDone: Bool = false
+    @State var isSetUpDone = false
+    @State var isOnError = false
+    
+    func initializeSession() {
+        HearthstoneAPIClient.shared.initializeSession { error in
+            guard !error else {
+                isOnError.toggle()
+                return
+            }
+            withAnimation {
+                self.isSetUpDone = true
+            }
+        }
+    }
     
     var body: some View {
         VStack {
@@ -18,12 +31,16 @@ struct SplashView: View {
                 Text("Splash Screen!")
             }
         }
-        .onAppear {
-            HearthstoneAPIClient.shared.initializeSession {
-                withAnimation {
-                    self.isSetUpDone = true
-                }
+        .alert("There was an error", isPresented: $isOnError) {
+            Button("Retry") {
+                initializeSession()
             }
+        }
+        message: {
+            Text("Care to try again?")
+        }
+        .onAppear {
+            initializeSession()
         }
     }
 }

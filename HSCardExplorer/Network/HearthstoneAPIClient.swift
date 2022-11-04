@@ -25,15 +25,23 @@ class HearthstoneAPIClient {
         session = URLSession(configuration: configuration)
     }
     
-    func initializeSession(callback: @escaping () -> Void) {
-        getToken {
-            self.getMetadata {
-                callback()
+    func initializeSession(callback: @escaping (Bool) -> Void) {
+        getToken { error in
+            guard !error else {
+                callback(error)
+                return
+            }
+            self.getMetadata { error in
+                guard !error else {
+                    callback(error)
+                    return
+                }
+                callback(false)
             }
         }
     }
     
-    func getToken(callback: @escaping () -> Void) {
+    func getToken(callback: @escaping (Bool) -> Void) {
         let url = URL(string: "https://oauth.battle.net/token")!
             .appending(queryItems: [URLQueryItem(name: "grant_type", value: "client_credentials")])
         var request = URLRequest(url: url)
@@ -41,24 +49,28 @@ class HearthstoneAPIClient {
         request.setValue("Basic \(Data(HearthstoneAPIKey.secret.utf8).base64EncodedString())", forHTTPHeaderField: "Authorization")
         session.dataTaskPublisher(for: request)
             .subscribe(on: queue)
-            .map({ $0.data })
+            .map({
+                debugPrint(String(data: $0.data, encoding: .utf8) ?? "")
+                return $0.data
+            })
             .decode(type: AccessTokenResponse.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
                 case .finished:
-                    debugPrint("Success")
+                    debugPrint("Success: token")
                 case .failure(let error):
                     debugPrint(error)
+                    callback(true)
                 }
             } receiveValue: { response in
                 self.accessToken = response.accessToken
-                callback()
+                callback(false)
             }
             .store(in: &subscriptions)
     }
     
-    func getMetadata(callback: @escaping () -> Void) {
+    func getMetadata(callback: @escaping (Bool) -> Void) {
         var url = baseUrl.appending(path: "/hearthstone/metadata")
         url.append(queryItems: [
             URLQueryItem(name: "access_token", value: accessToken),
@@ -66,25 +78,32 @@ class HearthstoneAPIClient {
         ])
         return session.dataTaskPublisher(for: url)
             .subscribe(on: queue)
-            .map({ $0.data })
+            .map({
+                debugPrint(String(data: $0.data, encoding: .utf8) ?? "")
+                return $0.data
+            })
             .decode(type: MetadataResponse.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
             .sink { completion in
                 switch completion {
                 case .finished:
-                    debugPrint("Success")
+                    debugPrint("Success: metadata")
                 case .failure(let error):
                     debugPrint(error)
+                    callback(true)
                 }
             } receiveValue: { response in
                 CardSet.remoteSets = response.sets
-                callback()
+                callback(false)
             }
             .store(in: &subscriptions)
     }
     
     func getCards(
         cardSet: CardSet?,
+        manaCost: Int?,
+        attack: Int?,
+        health: Int?,
         shouldShowUncollectibleCards: Bool,
         sortOption: CardSortOption,
         sortDirection: CardSortDirection,
@@ -104,10 +123,20 @@ class HearthstoneAPIClient {
         if let cardSet = cardSet {
             url.append(queryItems: [URLQueryItem(name: "set", value: cardSet.slug)])
         }
+        if let manaCost = manaCost {
+            url.append(queryItems: [URLQueryItem(name: "manaCost", value: String(manaCost))])
+        }
+        if let attack = attack {
+            url.append(queryItems: [URLQueryItem(name: "attack", value: String(attack))])
+        }
+        if let health = health {
+            url.append(queryItems: [URLQueryItem(name: "health", value: String(health))])
+        }
         return session.dataTaskPublisher(for: url)
             .subscribe(on: queue)
             .map({
-                $0.data
+                debugPrint(String(data: $0.data, encoding: .utf8) ?? "")
+                return $0.data
             })
             .decode(type: CardsResponse.self, decoder: JSONDecoder())
             .receive(on: DispatchQueue.main)
