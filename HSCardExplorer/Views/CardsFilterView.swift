@@ -64,17 +64,17 @@ struct CardsFilterView: View {
             }
             Section {
                 Stepper(
-                    "Mana cost: \(manaCost == -1 ? "Any" : String(manaCost))",
+                    "Mana cost: \t **\(manaCost == -1 ? "Any" : String(manaCost))**",
                     value: $manaCost,
                     in: -1...50
                 )
                 Stepper(
-                    "Attack: \(attack == -1 ? "Any" : String(attack))",
+                    "Attack: \t\t **\(attack == -1 ? "Any" : String(attack))**",
                     value: $attack,
                     in: -1...50
                 )
                 Stepper(
-                    "Health: \(health == -1 ? "Any" : String(health))",
+                    "Health: \t\t **\(health == -1 ? "Any" : String(health))**",
                     value: $health,
                     in: -1...50
                 )
