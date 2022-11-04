@@ -30,6 +30,8 @@
 		615FFB2B291446A00085A2E3 /* CardSortDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2A291446A00085A2E3 /* CardSortDirection.swift */; };
 		615FFB2D2914502C0085A2E3 /* MetadataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2C2914502C0085A2E3 /* MetadataResponse.swift */; };
 		615FFB2F291450490085A2E3 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2E291450490085A2E3 /* CardSet.swift */; };
+		615FFB312914BE2E0085A2E3 /* HeroClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB302914BE2E0085A2E3 /* HeroClass.swift */; };
+		615FFB332914BF390085A2E3 /* CardRarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB322914BF390085A2E3 /* CardRarity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +78,8 @@
 		615FFB2A291446A00085A2E3 /* CardSortDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSortDirection.swift; sourceTree = "<group>"; };
 		615FFB2C2914502C0085A2E3 /* MetadataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataResponse.swift; sourceTree = "<group>"; };
 		615FFB2E291450490085A2E3 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
+		615FFB302914BE2E0085A2E3 /* HeroClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroClass.swift; sourceTree = "<group>"; };
+		615FFB322914BF390085A2E3 /* CardRarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRarity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +195,8 @@
 				615FFB28291445550085A2E3 /* CardSortOption.swift */,
 				615FFB2A291446A00085A2E3 /* CardSortDirection.swift */,
 				615FFB2E291450490085A2E3 /* CardSet.swift */,
+				615FFB302914BE2E0085A2E3 /* HeroClass.swift */,
+				615FFB322914BF390085A2E3 /* CardRarity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -365,8 +371,10 @@
 				615FFB2D2914502C0085A2E3 /* MetadataResponse.swift in Sources */,
 				615FFB0E291228D90085A2E3 /* CardsCollectionView.swift in Sources */,
 				615FFB29291445550085A2E3 /* CardSortOption.swift in Sources */,
+				615FFB332914BF390085A2E3 /* CardRarity.swift in Sources */,
 				615FFB0C291215970085A2E3 /* CardDetailView.swift in Sources */,
 				615FFB1D29136C410085A2E3 /* AccessTokenResponse.swift in Sources */,
+				615FFB312914BE2E0085A2E3 /* HeroClass.swift in Sources */,
 				615FFB2B291446A00085A2E3 /* CardSortDirection.swift in Sources */,
 				615FFB17291349000085A2E3 /* Card.swift in Sources */,
 				615FFAE229120FFE0085A2E3 /* MainView.swift in Sources */,

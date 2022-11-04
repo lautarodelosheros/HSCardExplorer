@@ -13,20 +13,31 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             CardsCollectionView()
-            .navigationTitle("Card Explorer")
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    Button {
-                        isShowingFilter.toggle()
-                    } label: {
-                        Image(systemName: "line.3.horizontal.decrease.circle")
-                    }
-                    .sheet(isPresented: $isShowingFilter) {
-                        CardsFilterView()
+                .navigationTitle("Card Explorer")
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button {
+                            isShowingFilter.toggle()
+                        } label: {
+                            Image(systemName: "line.3.horizontal.decrease.circle")
+                        }
+                        .sheet(isPresented: $isShowingFilter) {
+                            NavigationView {
+                                CardsFilterView()
+                                    .toolbar {
+                                        ToolbarItem(placement: .navigationBarTrailing) {
+                                            Button {
+                                                isShowingFilter.toggle()
+                                            } label: {
+                                                Text("Done").bold()
+                                            }
+                                        }
+                                    }
+                            }
                             .presentationDetents([.medium, .large])
+                        }
                     }
                 }
-            }
         }
     }
 }

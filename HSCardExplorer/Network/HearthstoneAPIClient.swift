@@ -94,6 +94,8 @@ class HearthstoneAPIClient {
                 }
             } receiveValue: { response in
                 CardSet.remoteSets = response.sets
+                HeroClass.remoteHeroClasses = response.classes
+                CardRarity.remoteCardRarities = response.rarities
                 callback(false)
             }
             .store(in: &subscriptions)
@@ -104,6 +106,8 @@ class HearthstoneAPIClient {
         manaCost: Int?,
         attack: Int?,
         health: Int?,
+        heroClass: HeroClass?,
+        cardRarity: CardRarity?,
         shouldShowUncollectibleCards: Bool,
         sortOption: CardSortOption,
         sortDirection: CardSortDirection,
@@ -122,6 +126,12 @@ class HearthstoneAPIClient {
         ])
         if let cardSet = cardSet {
             url.append(queryItems: [URLQueryItem(name: "set", value: cardSet.slug)])
+        }
+        if let heroClass = heroClass {
+            url.append(queryItems: [URLQueryItem(name: "class", value: heroClass.slug)])
+        }
+        if let cardRarity = cardRarity {
+            url.append(queryItems: [URLQueryItem(name: "rarity", value: cardRarity.slug)])
         }
         if let manaCost = manaCost {
             url.append(queryItems: [URLQueryItem(name: "manaCost", value: String(manaCost))])

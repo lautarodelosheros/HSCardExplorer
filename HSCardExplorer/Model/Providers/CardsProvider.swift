@@ -19,6 +19,8 @@ class CardsProvider: DataProvider<Card> {
     var manaCost: Int = -1
     var attack: Int = -1
     var health: Int = -1
+    var heroClass: HeroClass?
+    var cardRarity: CardRarity?
     var shouldShowUncollectibleCards = false
     var sortOption = CardSortOption.name
     var sortDirection = CardSortDirection.ascendant
@@ -37,6 +39,8 @@ class CardsProvider: DataProvider<Card> {
             manaCost: manaCost,
             attack: attack,
             health: health,
+            heroClass: heroClass,
+            cardRarity: cardRarity,
             shouldShowUncollectibleCards: shouldShowUncollectibleCards,
             sortOption: sortOption,
             sortDirection: sortDirection,

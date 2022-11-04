@@ -13,6 +13,8 @@ struct CardsFilterView: View {
     @State private var manaCost = CardsProvider.shared.manaCost
     @State private var attack = CardsProvider.shared.attack
     @State private var health = CardsProvider.shared.health
+    @State private var heroClass = CardsProvider.shared.heroClass
+    @State private var cardRarity = CardsProvider.shared.cardRarity
     @State private var shouldShowUncollectibleCards = CardsProvider.shared.shouldShowUncollectibleCards
     @State private var sortOption = CardsProvider.shared.sortOption
     @State private var sortDirection = CardsProvider.shared.sortDirection
@@ -41,6 +43,22 @@ struct CardsFilterView: View {
                     ForEach(CardSet.availableSets) { cardSet in
                         Text(cardSet.name)
                             .tag(cardSet as CardSet?)
+                    }
+                }
+                Picker("Class", selection: $heroClass) {
+                    Text("All")
+                        .tag(nil as HeroClass?)
+                    ForEach(HeroClass.availableHeroClasses) { heroClass in
+                        Text(heroClass.name)
+                            .tag(heroClass as HeroClass?)
+                    }
+                }
+                Picker("Rarity", selection: $cardRarity) {
+                    Text("All")
+                        .tag(nil as CardRarity?)
+                    ForEach(CardRarity.availableCardRarities) { cardRarity in
+                        Text(cardRarity.name)
+                            .tag(cardRarity as CardRarity?)
                     }
                 }
             }
@@ -96,6 +114,14 @@ struct CardsFilterView: View {
             didPerformChanges = true
             CardsProvider.shared.health = newValue
         }
+        .onChange(of: heroClass) { newValue in
+            didPerformChanges = true
+            CardsProvider.shared.heroClass = newValue
+        }
+        .onChange(of: cardRarity) { newValue in
+            didPerformChanges = true
+            CardsProvider.shared.cardRarity = newValue
+        }
         .onChange(of: shouldShowUncollectibleCards) { newValue in
             didPerformChanges = true
             CardsProvider.shared.shouldShowUncollectibleCards = newValue
@@ -113,6 +139,7 @@ struct CardsFilterView: View {
             CardsProvider.shared.resetData()
             CardsProvider.shared.getData()
         }
+        .padding(.top, -32)
     }
 }
 

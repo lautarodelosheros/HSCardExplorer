@@ -10,4 +10,6 @@ import Foundation
 struct MetadataResponse: Codable {
     
     let sets: [CardSet]
+    let classes: [HeroClass]
+    let rarities: [CardRarity]
 }
