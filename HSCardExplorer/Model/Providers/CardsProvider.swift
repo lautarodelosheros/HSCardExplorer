@@ -15,6 +15,7 @@ class CardsProvider: DataProvider<Card> {
         super.init(pageSize: 40)
     }
     
+    var searchText = ""
     var cardSet: CardSet?
     var manaCost: Int = -1
     var attack: Int = -1
@@ -35,6 +36,7 @@ class CardsProvider: DataProvider<Card> {
         let attack = attack == -1 ? nil : attack
         let health = health == -1 ? nil : health
         HearthstoneAPIClient.shared.getCards(
+            searchText: searchText,
             cardSet: cardSet,
             manaCost: manaCost,
             attack: attack,

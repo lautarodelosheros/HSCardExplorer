@@ -36,14 +36,6 @@ class DataProvider<T>: ObservableObject {
         isFetchingFromServer = true
     }
     
-    var theresMoreData: Bool {
-        return !noMoreData
-    }
-    
-    var isFetchingData: Bool {
-        return isFetchingFromServer
-    }
-    
     func resetData() {
         currentPage = 0
         noMoreData = false

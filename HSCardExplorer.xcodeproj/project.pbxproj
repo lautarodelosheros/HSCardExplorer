@@ -32,6 +32,7 @@
 		615FFB2F291450490085A2E3 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2E291450490085A2E3 /* CardSet.swift */; };
 		615FFB312914BE2E0085A2E3 /* HeroClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB302914BE2E0085A2E3 /* HeroClass.swift */; };
 		615FFB332914BF390085A2E3 /* CardRarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB322914BF390085A2E3 /* CardRarity.swift */; };
+		615FFB36291574380085A2E3 /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB35291574380085A2E3 /* KeyboardToolbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +81,7 @@
 		615FFB2E291450490085A2E3 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 		615FFB302914BE2E0085A2E3 /* HeroClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroClass.swift; sourceTree = "<group>"; };
 		615FFB322914BF390085A2E3 /* CardRarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRarity.swift; sourceTree = "<group>"; };
+		615FFB35291574380085A2E3 /* KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 		615FFB09291214F20085A2E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				615FFB34291574010085A2E3 /* Accessory */,
 				615FFB0A291215050085A2E3 /* Screens */,
 				615FFB0D291228D90085A2E3 /* CardsCollectionView.swift */,
 				615FFB26291443E30085A2E3 /* CardsFilterView.swift */,
@@ -235,6 +238,14 @@
 				615FFB2C2914502C0085A2E3 /* MetadataResponse.swift */,
 			);
 			path = APIResponses;
+			sourceTree = "<group>";
+		};
+		615FFB34291574010085A2E3 /* Accessory */ = {
+			isa = PBXGroup;
+			children = (
+				615FFB35291574380085A2E3 /* KeyboardToolbar.swift */,
+			);
+			path = Accessory;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -380,6 +391,7 @@
 				615FFAE229120FFE0085A2E3 /* MainView.swift in Sources */,
 				615FFB12291345DF0085A2E3 /* HearthstoneAPIClient.swift in Sources */,
 				615FFB2329137CCF0085A2E3 /* CardsResponse.swift in Sources */,
+				615FFB36291574380085A2E3 /* KeyboardToolbar.swift in Sources */,
 				615FFB15291348710085A2E3 /* Decoder.swift in Sources */,
 				615FFB1929134BA60085A2E3 /* CardsProvider.swift in Sources */,
 				615FFAE029120FFE0085A2E3 /* HSCardExplorerApp.swift in Sources */,

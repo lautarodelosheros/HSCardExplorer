@@ -19,6 +19,9 @@ class HearthstoneAPIClient {
     
     private var accessToken = HearthstoneAPIKey.accessToken
     
+    private var retryCount = 0
+    private let retryLimit = 6
+    
     private init() {
         let configuration = URLSessionConfiguration.default
         configuration.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
@@ -88,9 +91,16 @@ class HearthstoneAPIClient {
                 switch completion {
                 case .finished:
                     debugPrint("Success: metadata")
+                    self.retryCount = 0
                 case .failure(let error):
                     debugPrint(error)
-                    callback(true)
+                    // Retry
+                    if self.retryCount < self.retryLimit {
+                        self.retryCount += 1
+                        self.getMetadata(callback: callback)
+                    } else {
+                        callback(true)
+                    }
                 }
             } receiveValue: { response in
                 CardSet.remoteSets = response.sets
@@ -102,6 +112,7 @@ class HearthstoneAPIClient {
     }
     
     func getCards(
+        searchText: String,
         cardSet: CardSet?,
         manaCost: Int?,
         attack: Int?,
@@ -122,6 +133,7 @@ class HearthstoneAPIClient {
             URLQueryItem(name: "page", value: String(page + 1)),
             URLQueryItem(name: "pageSize", value: String(pageSize)),
             URLQueryItem(name: "sort", value: "\(sortOption.id):\(sortDirection.id)"),
+            URLQueryItem(name: "textFilter", value: searchText),
             URLQueryItem(name: "collectible", value: showCollectibleCards)
         ])
         if let cardSet = cardSet {
