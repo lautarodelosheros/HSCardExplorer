@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CardSortDirection: Identifiable, Hashable {
+struct CardSortDirection: Identifiable, Hashable, CaseIterable {
     
     let id: String
     let title: String
@@ -19,4 +19,9 @@ struct CardSortDirection: Identifiable, Hashable {
     
     static let ascendant = CardSortDirection(id: "asc", title: "Ascendant")
     static let descendant = CardSortDirection(id: "desc", title: "Descendant")
+    
+    static let allCases: [CardSortDirection] = [
+        .ascendant,
+        .descendant
+    ]
 }

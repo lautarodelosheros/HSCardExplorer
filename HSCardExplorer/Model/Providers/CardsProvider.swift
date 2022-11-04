@@ -50,7 +50,6 @@ class CardsProvider: DataProvider<Card> {
             pageSize: pageSize
         )
         .sink { completion in
-            self.isFetchingFromServer = false
             switch completion {
             case .finished:
                 self.currentPage += 1
@@ -63,6 +62,7 @@ class CardsProvider: DataProvider<Card> {
                 }
                 debugPrint(error)
             }
+            self.isFetchingFromServer = false
         } receiveValue: { response in
             self.addData(response.cards)
             if response.cards.count != self.pageSize {

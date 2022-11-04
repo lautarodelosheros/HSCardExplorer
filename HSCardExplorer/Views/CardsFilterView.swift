@@ -20,21 +20,6 @@ struct CardsFilterView: View {
     @State private var sortOption = CardsProvider.shared.sortOption
     @State private var sortDirection = CardsProvider.shared.sortDirection
     
-    private let sortOptions: [CardSortOption] = [
-        .name,
-        .class,
-        .attack,
-        .health,
-        .manaCost,
-        .dataAdded,
-        .groupByClass
-    ]
-    
-    private let sortDirections: [CardSortDirection] = [
-        .ascendant,
-        .descendant
-    ]
-    
     var body: some View {
         NavigationView {
             Form {
@@ -86,13 +71,13 @@ struct CardsFilterView: View {
                 }
                 Section {
                     Picker("Sort cards by", selection: $sortOption) {
-                        ForEach(sortOptions) { sortOption in
+                        ForEach(CardSortOption.allCases) { sortOption in
                             Text(sortOption.title)
                                 .tag(sortOption)
                         }
                     }
                     Picker("Sort direction", selection: $sortDirection) {
-                        ForEach(sortDirections) { sortDirection in
+                        ForEach(CardSortDirection.allCases) { sortDirection in
                             Text(sortDirection.title)
                                 .tag(sortDirection)
                         }

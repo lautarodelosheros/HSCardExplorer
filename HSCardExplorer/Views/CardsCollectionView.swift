@@ -36,6 +36,7 @@ struct CardsCollectionView: View {
                 .frame(height: 100)
             })
         }
+        .scrollDismissesKeyboard(.interactively)
         .onAppear() {
             cardsProvider.getData()
         }

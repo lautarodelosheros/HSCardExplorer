@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CardSortOption: Identifiable, Hashable {
+struct CardSortOption: Identifiable, Hashable, CaseIterable {
     
     let id: String
     let title: String
@@ -24,4 +24,14 @@ struct CardSortOption: Identifiable, Hashable {
     static let dataAdded = CardSortOption(id: "dataAdded", title: "Date added")
     static let `class` = CardSortOption(id: "class", title: "Class")
     static let groupByClass = CardSortOption(id: "groupByClass", title: "Group by class")
+    
+    static var allCases: [CardSortOption] = [
+        .name,
+        .class,
+        .attack,
+        .health,
+        .manaCost,
+        .dataAdded,
+        .groupByClass
+    ]
 }

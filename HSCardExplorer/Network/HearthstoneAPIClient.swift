@@ -99,6 +99,7 @@ class HearthstoneAPIClient {
                         self.retryCount += 1
                         self.getMetadata(callback: callback)
                     } else {
+                        self.retryCount = 0
                         callback(true)
                     }
                 }
