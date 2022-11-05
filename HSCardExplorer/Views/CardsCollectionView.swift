@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct CardsCollectionView: View {
+    @State var isLoaded = false
     @StateObject var cardsProvider = CardsProvider.shared
     var columns = [
-        GridItem(.adaptive(minimum: 60), spacing: 8)
+        GridItem(.adaptive(minimum: 80), spacing: 8)
     ]
     
     var body: some View {
         ScrollView {
-            LazyVGrid(columns: columns, content: {
+            LazyVGrid(columns: columns) {
                 ForEach(Array(cardsProvider.data.enumerated()), id: \.element.id) { index, card in
                     NavigationLink(destination: CardDetailView(card: card)) {
                         AsyncImage(url: card.imageUrl,
@@ -33,12 +34,16 @@ struct CardsCollectionView: View {
                         }
                     }
                 }
-                .frame(height: 100)
-            })
+                .frame(height: 120)
+            }
+            .padding([.leading, .trailing], 10)
         }
-        .scrollDismissesKeyboard(.interactively)
+        .scrollDismissesKeyboard(.immediately)
         .onAppear() {
-            cardsProvider.getData()
+            if !isLoaded {
+                isLoaded = true
+                cardsProvider.getData()
+            }
         }
     }
 }

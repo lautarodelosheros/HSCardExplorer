@@ -21,11 +21,11 @@ struct CardDetailView: View {
                 }) {
                     ProgressView()
                 }
-                Text(card.name)
-                    .font(.title)
+                .frame(height: 440)
+                .padding(.leading, 16)
             }
         }
-        .padding(.top, 0.3)
+        .padding(.top, 4)
         .navigationTitle(card.name)
     }
 }
