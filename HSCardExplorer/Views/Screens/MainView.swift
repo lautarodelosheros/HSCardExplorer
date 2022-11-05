@@ -31,21 +31,8 @@ struct MainView: View {
     var body: some View {
         NavigationView {
             CardsCollectionView()
-                .keyboardToolbar(height: 44) {
-                    ZStack(alignment: .trailing) {
-                        Color.clear
-                        Button {
-                            isShowingFilter.toggle()
-                        } label: {
-                            Image(systemName: "line.3.horizontal.decrease.circle")
-                                .imageScale(.large)
-                        }
-                        .padding(.trailing, 10)
-                    }
-                    .background(.ultraThinMaterial)
-                }
                 .navigationTitle("Card Explorer")
-                .searchable(text: $searchText, placement: .automatic, prompt: "Search cards")
+                .searchable(text: $searchText, prompt: "Search cards")
                 .onChange(of: searchText) { newValue in
                     cancelTimer()
                     if !searchText.isEmpty {
@@ -63,7 +50,8 @@ struct MainView: View {
                     }
                 }
                 .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
+                    ToolbarItemGroup(placement: .bottomBar) {
+                        Spacer()
                         Button {
                             isShowingFilter.toggle()
                         } label: {
