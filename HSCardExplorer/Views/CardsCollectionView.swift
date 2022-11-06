@@ -33,6 +33,7 @@ struct CardsCollectionView: View {
                             }
                         }
                     }
+                    .buttonStyle(ScaleButtonStyle())
                 }
                 .frame(height: 120)
             }

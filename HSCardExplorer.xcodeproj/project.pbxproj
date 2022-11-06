@@ -33,6 +33,7 @@
 		615FFB312914BE2E0085A2E3 /* HeroClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB302914BE2E0085A2E3 /* HeroClass.swift */; };
 		615FFB332914BF390085A2E3 /* CardRarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB322914BF390085A2E3 /* CardRarity.swift */; };
 		615FFB3A291763E90085A2E3 /* RotationMotionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB39291763E90085A2E3 /* RotationMotionModifier.swift */; };
+		615FFB3F291813AE0085A2E3 /* ScaleButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB3E291813AE0085A2E3 /* ScaleButtonStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,7 @@
 		615FFB322914BF390085A2E3 /* CardRarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRarity.swift; sourceTree = "<group>"; };
 		615FFB37291613180085A2E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		615FFB39291763E90085A2E3 /* RotationMotionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationMotionModifier.swift; sourceTree = "<group>"; };
+		615FFB3E291813AE0085A2E3 /* ScaleButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScaleButtonStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +248,7 @@
 		615FFB34291574010085A2E3 /* Accessory */ = {
 			isa = PBXGroup;
 			children = (
+				615FFB3E291813AE0085A2E3 /* ScaleButtonStyle.swift */,
 			);
 			path = Accessory;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				615FFB3F291813AE0085A2E3 /* ScaleButtonStyle.swift in Sources */,
 				615FFB27291443E30085A2E3 /* CardsFilterView.swift in Sources */,
 				615FFB2D2914502C0085A2E3 /* MetadataResponse.swift in Sources */,
 				615FFB0E291228D90085A2E3 /* CardsCollectionView.swift in Sources */,
