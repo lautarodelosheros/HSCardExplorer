@@ -32,6 +32,7 @@
 		615FFB2F291450490085A2E3 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2E291450490085A2E3 /* CardSet.swift */; };
 		615FFB312914BE2E0085A2E3 /* HeroClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB302914BE2E0085A2E3 /* HeroClass.swift */; };
 		615FFB332914BF390085A2E3 /* CardRarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB322914BF390085A2E3 /* CardRarity.swift */; };
+		615FFB3A291763E90085A2E3 /* RotationMotionModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB39291763E90085A2E3 /* RotationMotionModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		615FFB302914BE2E0085A2E3 /* HeroClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroClass.swift; sourceTree = "<group>"; };
 		615FFB322914BF390085A2E3 /* CardRarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRarity.swift; sourceTree = "<group>"; };
 		615FFB37291613180085A2E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		615FFB39291763E90085A2E3 /* RotationMotionModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationMotionModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				615FFB09291214F20085A2E3 /* Views */,
 				615FFADF29120FFE0085A2E3 /* HSCardExplorerApp.swift */,
 				615FFAE329120FFF0085A2E3 /* Assets.xcassets */,
+				615FFB38291763CD0085A2E3 /* ViewModifiers */,
 				615FFAE529120FFF0085A2E3 /* Preview Content */,
 			);
 			path = HSCardExplorer;
@@ -247,6 +250,14 @@
 			path = Accessory;
 			sourceTree = "<group>";
 		};
+		615FFB38291763CD0085A2E3 /* ViewModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				615FFB39291763E90085A2E3 /* RotationMotionModifier.swift */,
+			);
+			path = ViewModifiers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -263,6 +274,8 @@
 			dependencies = (
 			);
 			name = HSCardExplorer;
+			packageProductDependencies = (
+			);
 			productName = HSCardExplorer;
 			productReference = 615FFADC29120FFE0085A2E3 /* HSCardExplorer.app */;
 			productType = "com.apple.product-type.application";
@@ -335,6 +348,8 @@
 				Base,
 			);
 			mainGroup = 615FFAD329120FFE0085A2E3;
+			packageReferences = (
+			);
 			productRefGroup = 615FFADD29120FFE0085A2E3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -396,6 +411,7 @@
 				615FFB1B291368A80085A2E3 /* SplashView.swift in Sources */,
 				615FFB1F29137BA00085A2E3 /* HearthstoneAPIKey.swift in Sources */,
 				615FFB2F291450490085A2E3 /* CardSet.swift in Sources */,
+				615FFB3A291763E90085A2E3 /* RotationMotionModifier.swift in Sources */,
 				615FFB25291416C10085A2E3 /* DataProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

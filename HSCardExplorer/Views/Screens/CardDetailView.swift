@@ -10,6 +10,8 @@ import SwiftUI
 struct CardDetailView: View {
     @State var card: Card
     
+    @ObservedObject var motionManager = MotionManager()
+    
     var body: some View {
         ScrollView {
             VStack {
@@ -23,6 +25,7 @@ struct CardDetailView: View {
                 }
                 .frame(height: 440)
                 .padding(.leading, 16)
+                .modifier(RotationMotionModifier(manager: motionManager, multiplier: 20))
             }
         }
         .padding(.top, 4)
