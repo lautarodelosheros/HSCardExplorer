@@ -44,8 +44,11 @@ struct CardsFilterView: View {
                         Text("All")
                             .tag(nil as CardRarity?)
                         ForEach(CardRarity.availableCardRarities) { cardRarity in
-                            Text(cardRarity.name)
-                                .tag(cardRarity as CardRarity?)
+                            HStack {
+                                Image(cardRarity.imageName)
+                                Text(cardRarity.name)
+                                    .tag(cardRarity as CardRarity?)
+                            }
                         }
                     }
                 }

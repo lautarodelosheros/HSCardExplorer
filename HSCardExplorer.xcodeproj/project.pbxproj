@@ -32,7 +32,6 @@
 		615FFB2F291450490085A2E3 /* CardSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB2E291450490085A2E3 /* CardSet.swift */; };
 		615FFB312914BE2E0085A2E3 /* HeroClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB302914BE2E0085A2E3 /* HeroClass.swift */; };
 		615FFB332914BF390085A2E3 /* CardRarity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB322914BF390085A2E3 /* CardRarity.swift */; };
-		615FFB36291574380085A2E3 /* KeyboardToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFB35291574380085A2E3 /* KeyboardToolbar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,7 +80,6 @@
 		615FFB2E291450490085A2E3 /* CardSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardSet.swift; sourceTree = "<group>"; };
 		615FFB302914BE2E0085A2E3 /* HeroClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroClass.swift; sourceTree = "<group>"; };
 		615FFB322914BF390085A2E3 /* CardRarity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardRarity.swift; sourceTree = "<group>"; };
-		615FFB35291574380085A2E3 /* KeyboardToolbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardToolbar.swift; sourceTree = "<group>"; };
 		615FFB37291613180085A2E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -245,7 +243,6 @@
 		615FFB34291574010085A2E3 /* Accessory */ = {
 			isa = PBXGroup;
 			children = (
-				615FFB35291574380085A2E3 /* KeyboardToolbar.swift */,
 			);
 			path = Accessory;
 			sourceTree = "<group>";
@@ -393,7 +390,6 @@
 				615FFAE229120FFE0085A2E3 /* MainView.swift in Sources */,
 				615FFB12291345DF0085A2E3 /* HearthstoneAPIClient.swift in Sources */,
 				615FFB2329137CCF0085A2E3 /* CardsResponse.swift in Sources */,
-				615FFB36291574380085A2E3 /* KeyboardToolbar.swift in Sources */,
 				615FFB15291348710085A2E3 /* Decoder.swift in Sources */,
 				615FFB1929134BA60085A2E3 /* CardsProvider.swift in Sources */,
 				615FFAE029120FFE0085A2E3 /* HSCardExplorerApp.swift in Sources */,
@@ -557,12 +553,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HSCardExplorer/Preview Content\"";
 				DEVELOPMENT_TEAM = 579RSDDQRM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSCardExplorer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Card Explorer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -587,12 +585,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_ASSET_PATHS = "\"HSCardExplorer/Preview Content\"";
 				DEVELOPMENT_TEAM = 579RSDDQRM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = HSCardExplorer/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Card Explorer";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

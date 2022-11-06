@@ -20,5 +20,22 @@ struct CardRarity: Codable, Identifiable, Hashable {
         return remoteCardRarities
     }
     
+    var imageName: String {
+        switch id {
+        case 1:
+            return "CommonRarityGem"
+        case 2:
+            return ""
+        case 3:
+            return "RareRarityGem"
+        case 4:
+            return "EpicRarityGem"
+        case 5:
+            return "LegendaryRarityGem"
+        default:
+            return ""
+        }
+    }
+    
     static var remoteCardRarities: [CardRarity]?
 }
