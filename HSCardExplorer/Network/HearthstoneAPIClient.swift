@@ -104,9 +104,11 @@ class HearthstoneAPIClient {
                     }
                 }
             } receiveValue: { response in
-                CardSet.remoteSets = response.sets
-                HeroClass.remoteHeroClasses = response.classes
-                CardRarity.remoteCardRarities = response.rarities
+                CardSet.sets = response.sets
+                HeroClass.heroClasses = response.classes
+                CardRarity.cardRarities = response.rarities
+                CardType.cardTypes = response.types
+                MinionType.minionTypes = response.minionTypes
                 callback(false)
             }
             .store(in: &subscriptions)
@@ -120,6 +122,8 @@ class HearthstoneAPIClient {
         health: Int?,
         heroClass: HeroClass?,
         cardRarity: CardRarity?,
+        cardType: CardType?,
+        minionType: MinionType?,
         shouldShowUncollectibleCards: Bool,
         sortOption: CardSortOption,
         sortDirection: CardSortDirection,
@@ -145,6 +149,12 @@ class HearthstoneAPIClient {
         }
         if let cardRarity = cardRarity {
             url.append(queryItems: [URLQueryItem(name: "rarity", value: cardRarity.slug)])
+        }
+        if let cardType = cardType {
+            url.append(queryItems: [URLQueryItem(name: "type", value: cardType.slug)])
+        }
+        if let minionType = minionType {
+            url.append(queryItems: [URLQueryItem(name: "minionType", value: minionType.slug)])
         }
         if let manaCost = manaCost {
             url.append(queryItems: [URLQueryItem(name: "manaCost", value: String(manaCost))])

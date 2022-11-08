@@ -12,4 +12,6 @@ struct MetadataResponse: Codable {
     let sets: [CardSet]
     let classes: [HeroClass]
     let rarities: [CardRarity]
+    let types: [CardType]
+    let minionTypes: [MinionType]
 }

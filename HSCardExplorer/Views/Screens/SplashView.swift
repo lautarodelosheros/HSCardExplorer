@@ -38,7 +38,7 @@ struct SplashView: View {
             }
         }
         message: {
-            Text("Care to try again?")
+            Text("This is an error on the Hearthstone API.\nCare to try again?")
         }
         .onAppear {
             initializeSession()

@@ -7,25 +7,18 @@
 
 import Foundation
 
-struct CardRarity: Codable, Identifiable, Hashable {
+struct CardRarity: CardAttribute {
     
     let id: Int
     let name: String
     let slug: String
     
-    static var availableCardRarities: [CardRarity] {
-        guard let remoteCardRarities = remoteCardRarities else {
-            return []
-        }
-        return remoteCardRarities
-    }
-    
-    var imageName: String {
+    var imageName: String? {
         switch id {
         case 1:
             return "CommonRarityGem"
         case 2:
-            return ""
+            return nil
         case 3:
             return "RareRarityGem"
         case 4:
@@ -33,9 +26,9 @@ struct CardRarity: Codable, Identifiable, Hashable {
         case 5:
             return "LegendaryRarityGem"
         default:
-            return ""
+            return nil
         }
     }
     
-    static var remoteCardRarities: [CardRarity]?
+    static var cardRarities: [CardRarity]?
 }

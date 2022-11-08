@@ -10,12 +10,9 @@ import SwiftUI
 struct CardsFilterView: View {
     @Binding var isPresented: Bool
     @State private var didPerformChanges = false
-    @State private var cardSet = CardsProvider.shared.cardSet
     @State private var manaCost = CardsProvider.shared.manaCost
     @State private var attack = CardsProvider.shared.attack
     @State private var health = CardsProvider.shared.health
-    @State private var heroClass = CardsProvider.shared.heroClass
-    @State private var cardRarity = CardsProvider.shared.cardRarity
     @State private var shouldShowUncollectibleCards = CardsProvider.shared.shouldShowUncollectibleCards
     @State private var sortOption = CardsProvider.shared.sortOption
     @State private var sortDirection = CardsProvider.shared.sortDirection
@@ -24,32 +21,45 @@ struct CardsFilterView: View {
         NavigationView {
             Form {
                 Section {
-                    Picker("Card set", selection: $cardSet) {
-                        Text("All")
-                            .tag(nil as CardSet?)
-                        ForEach(CardSet.availableSets) { cardSet in
-                            Text(cardSet.name)
-                                .tag(cardSet as CardSet?)
-                        }
+                    CardAttributePicker(
+                        attribute: CardsProvider.shared.cardSet,
+                        title: "Card set",
+                        options: CardSet.sets ?? []
+                    ) { newValue in
+                        didPerformChanges = true
+                        CardsProvider.shared.cardSet = newValue
                     }
-                    Picker("Class", selection: $heroClass) {
-                        Text("All")
-                            .tag(nil as HeroClass?)
-                        ForEach(HeroClass.availableHeroClasses) { heroClass in
-                            Text(heroClass.name)
-                                .tag(heroClass as HeroClass?)
-                        }
+                    CardAttributePicker(
+                        attribute: CardsProvider.shared.heroClass,
+                        title: "Class",
+                        options: HeroClass.heroClasses ?? []
+                    ) { newValue in
+                        didPerformChanges = true
+                        CardsProvider.shared.heroClass = newValue
                     }
-                    Picker("Rarity", selection: $cardRarity) {
-                        Text("All")
-                            .tag(nil as CardRarity?)
-                        ForEach(CardRarity.availableCardRarities) { cardRarity in
-                            HStack {
-                                Image(cardRarity.imageName)
-                                Text(cardRarity.name)
-                                    .tag(cardRarity as CardRarity?)
-                            }
-                        }
+                    CardAttributePicker(
+                        attribute: CardsProvider.shared.cardRarity,
+                        title: "Rarity",
+                        options: CardRarity.cardRarities ?? []
+                    ) { newValue in
+                        didPerformChanges = true
+                        CardsProvider.shared.cardRarity = newValue
+                    }
+                    CardAttributePicker(
+                        attribute: CardsProvider.shared.cardType,
+                        title: "Card type",
+                        options: CardType.cardTypes ?? []
+                    ) { newValue in
+                        didPerformChanges = true
+                        CardsProvider.shared.cardType = newValue
+                    }
+                    CardAttributePicker(
+                        attribute: CardsProvider.shared.minionType,
+                        title: "Minion type",
+                        options: MinionType.minionTypes ?? []
+                    ) { newValue in
+                        didPerformChanges = true
+                        CardsProvider.shared.minionType = newValue
                     }
                 }
                 Section {
@@ -88,10 +98,6 @@ struct CardsFilterView: View {
                     .pickerStyle(SegmentedPickerStyle())
                 }
             }
-            .onChange(of: cardSet) { newValue in
-                didPerformChanges = true
-                CardsProvider.shared.cardSet = newValue
-            }
             .onChange(of: manaCost) { newValue in
                 didPerformChanges = true
                 CardsProvider.shared.manaCost = newValue
@@ -103,14 +109,6 @@ struct CardsFilterView: View {
             .onChange(of: health) { newValue in
                 didPerformChanges = true
                 CardsProvider.shared.health = newValue
-            }
-            .onChange(of: heroClass) { newValue in
-                didPerformChanges = true
-                CardsProvider.shared.heroClass = newValue
-            }
-            .onChange(of: cardRarity) { newValue in
-                didPerformChanges = true
-                CardsProvider.shared.cardRarity = newValue
             }
             .onChange(of: shouldShowUncollectibleCards) { newValue in
                 didPerformChanges = true
@@ -145,5 +143,6 @@ struct CardsFilterView_Previews: PreviewProvider {
     @State static var isPresented = true
     static var previews: some View {
         CardsFilterView(isPresented: $isPresented)
+            .preferredColorScheme(.dark)
     }
 }

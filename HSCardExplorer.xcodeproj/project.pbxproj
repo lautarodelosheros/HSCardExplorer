@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		611C06D2291A06D60068DD1B /* CardType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C06D1291A06D60068DD1B /* CardType.swift */; };
+		611C06D6291A08640068DD1B /* MinionType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C06D5291A08640068DD1B /* MinionType.swift */; };
+		611C06DA291A0C100068DD1B /* CardAttributePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C06D9291A0C100068DD1B /* CardAttributePicker.swift */; };
+		611C06DC291A0DCA0068DD1B /* CardAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 611C06DB291A0DCA0068DD1B /* CardAttribute.swift */; };
 		615FFAE029120FFE0085A2E3 /* HSCardExplorerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFADF29120FFE0085A2E3 /* HSCardExplorerApp.swift */; };
 		615FFAE229120FFE0085A2E3 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 615FFAE129120FFE0085A2E3 /* MainView.swift */; };
 		615FFAE429120FFF0085A2E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 615FFAE329120FFF0085A2E3 /* Assets.xcassets */; };
@@ -54,6 +58,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		611C06D1291A06D60068DD1B /* CardType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardType.swift; sourceTree = "<group>"; };
+		611C06D5291A08640068DD1B /* MinionType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MinionType.swift; sourceTree = "<group>"; };
+		611C06D9291A0C100068DD1B /* CardAttributePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAttributePicker.swift; sourceTree = "<group>"; };
+		611C06DB291A0DCA0068DD1B /* CardAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardAttribute.swift; sourceTree = "<group>"; };
 		615FFADC29120FFE0085A2E3 /* HSCardExplorer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HSCardExplorer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		615FFADF29120FFE0085A2E3 /* HSCardExplorerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSCardExplorerApp.swift; sourceTree = "<group>"; };
 		615FFAE129120FFE0085A2E3 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -112,6 +120,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		611C06D7291A0A920068DD1B /* Card attributes */ = {
+			isa = PBXGroup;
+			children = (
+				611C06DB291A0DCA0068DD1B /* CardAttribute.swift */,
+				615FFB322914BF390085A2E3 /* CardRarity.swift */,
+				615FFB2E291450490085A2E3 /* CardSet.swift */,
+				611C06D1291A06D60068DD1B /* CardType.swift */,
+				615FFB302914BE2E0085A2E3 /* HeroClass.swift */,
+				611C06D5291A08640068DD1B /* MinionType.swift */,
+			);
+			path = "Card attributes";
+			sourceTree = "<group>";
+		};
+		611C06D8291A0BF70068DD1B /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				615FFB26291443E30085A2E3 /* CardsFilterView.swift */,
+				611C06D9291A0C100068DD1B /* CardAttributePicker.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		615FFAD329120FFE0085A2E3 = {
 			isa = PBXGroup;
 			children = (
@@ -176,10 +206,10 @@
 		615FFB09291214F20085A2E3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				611C06D8291A0BF70068DD1B /* Filter */,
 				615FFB34291574010085A2E3 /* Accessory */,
 				615FFB0A291215050085A2E3 /* Screens */,
 				615FFB0D291228D90085A2E3 /* CardsCollectionView.swift */,
-				615FFB26291443E30085A2E3 /* CardsFilterView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -197,14 +227,12 @@
 		615FFB0F291345BD0085A2E3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				611C06D7291A0A920068DD1B /* Card attributes */,
 				615FFB2129137CB10085A2E3 /* APIResponses */,
 				615FFB2029137CA70085A2E3 /* Providers */,
 				615FFB16291349000085A2E3 /* Card.swift */,
 				615FFB28291445550085A2E3 /* CardSortOption.swift */,
 				615FFB2A291446A00085A2E3 /* CardSortDirection.swift */,
-				615FFB2E291450490085A2E3 /* CardSet.swift */,
-				615FFB302914BE2E0085A2E3 /* HeroClass.swift */,
-				615FFB322914BF390085A2E3 /* CardRarity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -400,13 +428,16 @@
 				615FFB2D2914502C0085A2E3 /* MetadataResponse.swift in Sources */,
 				615FFB0E291228D90085A2E3 /* CardsCollectionView.swift in Sources */,
 				615FFB29291445550085A2E3 /* CardSortOption.swift in Sources */,
+				611C06D2291A06D60068DD1B /* CardType.swift in Sources */,
 				615FFB332914BF390085A2E3 /* CardRarity.swift in Sources */,
 				615FFB0C291215970085A2E3 /* CardDetailView.swift in Sources */,
+				611C06DA291A0C100068DD1B /* CardAttributePicker.swift in Sources */,
 				615FFB1D29136C410085A2E3 /* AccessTokenResponse.swift in Sources */,
 				615FFB312914BE2E0085A2E3 /* HeroClass.swift in Sources */,
 				615FFB2B291446A00085A2E3 /* CardSortDirection.swift in Sources */,
 				615FFB17291349000085A2E3 /* Card.swift in Sources */,
 				615FFAE229120FFE0085A2E3 /* MainView.swift in Sources */,
+				611C06DC291A0DCA0068DD1B /* CardAttribute.swift in Sources */,
 				615FFB12291345DF0085A2E3 /* HearthstoneAPIClient.swift in Sources */,
 				615FFB2329137CCF0085A2E3 /* CardsResponse.swift in Sources */,
 				615FFB15291348710085A2E3 /* Decoder.swift in Sources */,
@@ -417,6 +448,7 @@
 				615FFB2F291450490085A2E3 /* CardSet.swift in Sources */,
 				615FFB3A291763E90085A2E3 /* RotationMotionModifier.swift in Sources */,
 				615FFB25291416C10085A2E3 /* DataProvider.swift in Sources */,
+				611C06D6291A08640068DD1B /* MinionType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

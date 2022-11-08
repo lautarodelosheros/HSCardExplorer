@@ -22,6 +22,8 @@ class CardsProvider: DataProvider<Card> {
     var health: Int = -1
     var heroClass: HeroClass?
     var cardRarity: CardRarity?
+    var cardType: CardType?
+    var minionType: MinionType?
     var shouldShowUncollectibleCards = false
     var sortOption = CardSortOption.name
     var sortDirection = CardSortDirection.ascendant
@@ -43,6 +45,8 @@ class CardsProvider: DataProvider<Card> {
             health: health,
             heroClass: heroClass,
             cardRarity: cardRarity,
+            cardType: cardType,
+            minionType: minionType,
             shouldShowUncollectibleCards: shouldShowUncollectibleCards,
             sortOption: sortOption,
             sortDirection: sortDirection,
